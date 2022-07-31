@@ -50,6 +50,19 @@ public class Linked_List {
 		}
 		previousToLast.next = null;
 	}
+	// UC-7 :- Ability to search LinkedList to find Node with value 30. 
+	public <T> boolean search(T key) {
+		Node currentNode = head;
+		while(currentNode != null) {                               
+			if(currentNode.key == key) {                                 // 56 | next --> 30 | next
+				System.out.println("\n\nNode :- " + currentNode.key);   //   (head)        (found)
+				return true;
+			}
+			currentNode = currentNode.next;
+		}
+		System.out.println("\n\nNode not found");
+		return false;
+	}
 	
 	
 	
