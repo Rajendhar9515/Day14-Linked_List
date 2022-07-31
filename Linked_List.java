@@ -22,6 +22,17 @@ public class Linked_List {
 												//                  (appended to 56)    (appended to 30)						
 		currentNode.next = node;
 	}
+
+	// Ability to insert 30 between 56 and 70. 
+	public <T> void insertBetween(T previous_key , T key) {
+		Node currentNode = head;
+		while(currentNode.key != previous_key) {
+			currentNode = currentNode.next;          //  56 | next  ------>  30 | next------> 70 | next ----> null
+		}                                            //(previous_key)    (inserted between)
+		Node node = new Node(key);
+		node.next = currentNode.next;
+		currentNode.next = node;
+	}
 	
 	
 	// printing linked list 
@@ -36,6 +47,7 @@ public class Linked_List {
 	}
 	
 	public static void main(String[] args) {
+		
 		// Displayed welcome message 
 		System.out.println("\t WELCOME TO LINKED LIST \n");
 		
@@ -47,5 +59,5 @@ public class Linked_List {
 		linkedList.append(70);        
 									
 		linkedList.print();  //printing linkedlist keys/elements/data.
-	}	
+	}
 }
