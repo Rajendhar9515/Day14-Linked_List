@@ -1,17 +1,16 @@
 package com.bridgelabz.linkedlist;
 
 public class Node<T> {
+	T key;                 // key/Data with Generic type.
+	Node<T> next = null;      // initially next assigned as null.
 	
-	T key; // key/Data with Generic type.
-	Node<T> next = null; // initially next assigned as null.
-
-	// Constructor
+	// Constructors 
 	public Node(T key) {
 		this.key = key;
-		this.next = next;
+		next = null;
 	}
-
-	// Getters and Setters
+	
+	// Getters and Setters 
 	public T getKey() {
 		return key;
 	}
