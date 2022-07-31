@@ -63,7 +63,17 @@ public class Linked_List {
 		System.out.println("\n\nNode not found");
 		return false;
 	}
-	
+	// UC-8 :- Ability to insert 40 after 30 to the Linked List sequence of 56->30->70. 
+	public <T> boolean searchAndInsert(T previous_key , T insert_key) {
+		Node currentNode = head;
+		while(currentNode != null) {
+			if(currentNode.key.equals(previous_key)) {
+				insertBetween(previous_key , insert_key);      // calling method to insert node.
+			}                                                 // 56|next---->30|next----> 40|next---->70|next---->null
+			currentNode = currentNode.next;					 //           (found key)   (inserted)
+		}
+		return false;
+	}
 	
 	
 	// printing linked list 
@@ -87,9 +97,9 @@ public class Linked_List {
 		 
 		linkedList.addFirst(56);
 		linkedList.append(70);
-		linkedList.insertBetween(56, 30);     
-		linkedList.popLast();        // deleting the last node        
+		linkedList.insertBetween(56, 30);        
 									
+		linkedList.searchAndInsert(30, 40);
 		linkedList.print();  //printing linked list keys/elements/data.
 	}
 }
