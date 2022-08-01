@@ -74,7 +74,32 @@ public class Linked_List {
 		}
 		return false;
 	}
+
+	//UC-9 :- Ability to delete 40 from the Linked List sequence of 56->30->40->70 and show the size of LinkedList is 3
+	public <T> boolean DeleteByKey(T key) {
+		Node currentNode = head;
+		Node previousNode = head;
+		while(currentNode != null) {
+			if(currentNode.key == key) {
+				previousNode.next = currentNode.next;         // 56|next---->30|next---->40|next----70|next---->null
+				size(); 									//                   (40 found & deleted)
+				return true;                                //   56|next-->30|next-->70|next-->null 
+			}												
+			previousNode = currentNode;
+			currentNode = currentNode.next;
+		}
+		return false;
+	}
 	
+	public <T> void size() {
+		Node curreNode = head;
+		int count = 0;
+		while(curreNode != null) {             // counting size of the linked list.
+			count++;
+			curreNode = curreNode.next;
+		}
+		System.out.println("Size of the Linked List :- " + count);
+	}
 	
 	// printing linked list 
 	public <T> void print() {
@@ -98,8 +123,10 @@ public class Linked_List {
 		linkedList.addFirst(56);
 		linkedList.append(70);
 		linkedList.insertBetween(56, 30);        
-									
 		linkedList.searchAndInsert(30, 40);
+		linkedList.DeleteByKey(40);
+
+		
 		linkedList.print();  //printing linked list keys/elements/data.
 	}
 }
